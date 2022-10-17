@@ -1,13 +1,28 @@
-# lift-off-supergraph-demo-users
+# Odyssey Lift-off: Destination Supergraph - users subgraph
 
-This is an extremely basic user subgraph as a starting point to build the future of Catstronauts pilot license program. 
+This is a subgraph provided for you for the Odyssey Lift-off: Destination Supergraph course! You can find the [course lessons and instructions on Odyssey](https://www.apollographql.com/tutorials/lift-off-supergraph/), Apollo's learning platform.
 
-Start first with launching [lift-off-supergraph-demo-tracks](https://github.com/apollographql-education/lift-off-supergraph-demo-tracks) with `rover dev` (follow instruction on the readme there.  
-Once the tracks subgraph is running, you can spin up this users subgraph in another terminal window using the `rover dev`command as well. Both subgraph will be composed locally, the router will be launched and you'll have access to the supergraph on the sandbox at `http://localhost:3000`
+This users subgraph is meant to expand the Catstronauts supergraph.
+## Running this subgraph
 
-## Running the subgraph
+1. In a terminal window, install the packages.
 
-in a first terminal window start your server with `npm run dev`
-in a new terminal window run `rover dev` you will be prompted to enter the subgraphs url
-which is `http://localhost:4002`
+```
+npm install
+```
+
+1. Then, run the server
+
+```
+npm start
+```
+
+This will start the GraphQL server on `localhost:4002`, where you can use Apollo Sandbox to run queries.
+
+[Follow the course instructions](https://www.apollographql.com/tutorials/lift-off-supergraph/) for more on how to add this subgraph to the supergraph and how to use `rover dev`.
+
+## Getting Help
+
+For any issues or problems concerning the course content, please refer to the [Odyssey topic in our community forums](https://community.apollographql.com/tags/c/help/6/odyssey).
+
 

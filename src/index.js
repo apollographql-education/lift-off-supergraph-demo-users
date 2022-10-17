@@ -1,19 +1,25 @@
-const { ApolloServer, gql } = require('apollo-server');
-const {readFileSync} = require('fs');
-const path = require("path");
-const typeDefs = gql(readFileSync(path.resolve(__dirname, "./schema.graphql"), {encoding: 'utf-8'}));
+const { ApolloServer } = require('@apollo/server');
+const { startStandaloneServer } = require('@apollo/server/standalone');
+const { buildSubgraphSchema } = require('@apollo/subgraph');
+
+const { gql } = require('graphql-tag');
+const { readFileSync } = require('fs');
+const path = require('path');
+
+const typeDefs = gql(readFileSync(path.resolve(__dirname, './schema.graphql'), { encoding: 'utf-8' }));
 const resolvers = require('./resolvers');
-const { buildSubgraphSchema} = require("@apollo/subgraph")
 
+async function startApolloServer() {
+  const server = new ApolloServer({ schema: buildSubgraphSchema({ typeDefs, resolvers }) });
 
-const server = new ApolloServer({
- schema: buildSubgraphSchema({
-   typeDefs,
-   resolvers,
- })
-});
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: process.env.PORT || 4002 },
+  });
 
-server.listen({ port: 4002 }).then(({ url }) => {
-  console.log(`🚀 users subgraph ready at ${url}`);
-});
+  console.log(`
+    🚀  Server is running
+    📭  Query at ${url}
+  `);
+}
 
+startApolloServer();

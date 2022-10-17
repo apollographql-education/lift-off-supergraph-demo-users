@@ -1,12 +1,12 @@
- extend schema  @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"])
 
-  type Query {
-    users(licensed:Boolean): [User]!
-    user(id:ID!): User
-  }
+type Query {
+  users(licensed: Boolean): [User]!
+  user(id: ID!): User
+}
 
-  type User{
-    id:ID!
-    name:String!
-    hasLicense:Boolean
-  }
+type User {
+  id: ID!
+  name: String!
+  hasLicense: Boolean
+}

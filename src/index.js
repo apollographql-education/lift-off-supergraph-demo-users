@@ -2,7 +2,7 @@ const { ApolloServer } = require('@apollo/server');
 const { startStandaloneServer } = require('@apollo/server/standalone');
 const { buildSubgraphSchema } = require('@apollo/subgraph');
 
-const { gql } = require('graphql-tag');
+const gql = require('graphql-tag');
 const { readFileSync } = require('fs');
 const path = require('path');
 
